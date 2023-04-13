@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 public class University {
     public static void main(String[] args) {
@@ -45,6 +44,7 @@ public class University {
         int cantFTel = 0;
         int cantMMeca = 0;
         int cantFMeca = 0;
+        double note = 0;
         double[] notes= {};
 
         carreer =Integer.parseInt(JOptionPane.showInputDialog("Escoja la carrera para la cual desea realizar el registro:\n" +
@@ -66,8 +66,9 @@ public class University {
             }else{
                 cantFTel++;
             }
-            for (int j = 0; j < 5; j++) {
-                notes[j] =Double.parseDouble(JOptionPane.showInputDialog("Ingrese la nota " + i + " del estudiante:"));
+            for (int j = 0; j <= 5; j++) {
+                note = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la nota " + i + " del estudiante:"));
+                notes[j] = note ;
                 if (carreer == 1){
                     promMeca = promMeca + notes[j];
                 }else {
