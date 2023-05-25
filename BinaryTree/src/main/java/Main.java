@@ -26,18 +26,20 @@ public class Main {
 
         flag = 1;
         while (flag == 1) {
-            System.out.print("¿Desea continuar?\n" + "1. Sí\n" + "0. No\n");
+            System.out.print("¿Desea continuar?\n" + "1. Sí.\n" + "0. No.\n");
             flag = sc.nextInt();
             if (flag == 1) {
                 System.out.print("Ingrese el valor del nodo: \n");
                 int nodoValue = sc.nextInt();
                 binaryTree.insert(nodoValue);
-            } else {
+            } else if (flag == 0) {
                 flag = 0;
+            } else {
+                System.out.println("Opción inválida. Escoja una opción correcta.");
             }
         }
         if (flag == 0) {
-            System.out.print("Escoja el tipo de recorrido que desea realizar al nodo:\n" + "1. Pre Order\n" + "2. In Order\n" + "3. Post Order\n");
+            System.out.print("Escoja el tipo de recorrido que desea realizar al nodo:\n" + "1. Pre Order.\n" + "2. In Order.\n" + "3. Post Order.\n");
             int opc = sc.nextInt();
             if (opc == 1) {
                 System.out.println("***Recorrido PreOrder***");
@@ -52,8 +54,9 @@ public class Main {
                 recorridoPostOrder(binaryTree.getRaiz());
                 System.out.println("*************************");
             } else {
-                System.out.println("Opción inválida.");
+                System.out.println("Opción inválida. Escoja una opción correcta.");
             }
+            System.out.println("***¡Hasta pronto!***");
         }
 
 
