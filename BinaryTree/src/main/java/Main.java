@@ -17,12 +17,12 @@ public class Main {
 
     public static void tree() {
         Scanner sc = new Scanner(System.in);
-        int raiz;
+        int root;
         int flag;
         BinaryTree binaryTree = new BinaryTree();
         System.out.println("Ingrese la raíz del árbol binario:");
-        raiz = sc.nextInt();
-        binaryTree.insert(raiz);
+        root = sc.nextInt();
+        binaryTree.insert(root);
 
         flag = 1;
         while (flag == 1) {
@@ -30,8 +30,8 @@ public class Main {
             flag = sc.nextInt();
             if (flag == 1) {
                 System.out.print("Ingrese el valor del nodo: \n");
-                int nodoValue = sc.nextInt();
-                binaryTree.insert(nodoValue);
+                int nodeValue = sc.nextInt();
+                binaryTree.insert(nodeValue);
             } else if (flag == 0) {
                 flag = 0;
             } else {
@@ -43,46 +43,41 @@ public class Main {
             int opc = sc.nextInt();
             if (opc == 1) {
                 System.out.println("***Recorrido PreOrder***");
-                recorridoPreOrder(binaryTree.getRaiz());
+                preOrderRoute(binaryTree.getRoot());
                 System.out.println("************************");
             } else if (opc == 2) {
                 System.out.println("***Recorrido InOrder***");
-                recorridoInOrder(binaryTree.getRaiz());
+                inOrderRoute(binaryTree.getRoot());
                 System.out.println("***********************");
             } else if (opc == 3) {
                 System.out.println("***Recorrido PostOrder***");
-                recorridoPostOrder(binaryTree.getRaiz());
+                postOrderRoute(binaryTree.getRoot());
                 System.out.println("*************************");
             } else {
                 System.out.println("Opción inválida. Escoja una opción correcta.");
             }
             System.out.println("***¡Hasta pronto!***");
         }
-
-
     }
-
-    public static void recorridoInOrder(Nodo nodo) {
-        if (nodo != null) {
-            recorridoInOrder(nodo.getIzquierdo());
-            System.out.println(nodo.getValor());
-            recorridoInOrder(nodo.getDerecho());
+    public static void inOrderRoute(Node node) {
+        if (node != null) {
+            inOrderRoute(node.getLeft());
+            System.out.println(node.getValue());
+            inOrderRoute(node.getRight());
         }
     }
-
-    public static void recorridoPreOrder(Nodo nodo) {
-        if (nodo != null) {
-            System.out.println(nodo.getValor());
-            recorridoPreOrder(nodo.getIzquierdo());
-            recorridoPreOrder(nodo.getDerecho());
+    public static void preOrderRoute(Node node) {
+        if (node != null) {
+            System.out.println(node.getValue());
+            preOrderRoute(node.getLeft());
+            preOrderRoute(node.getRight());
         }
     }
-
-    public static void recorridoPostOrder(Nodo nodo) {
-        if (nodo != null) {
-            recorridoPostOrder(nodo.getIzquierdo());
-            recorridoPostOrder(nodo.getDerecho());
-            System.out.println(nodo.getValor());
+    public static void postOrderRoute(Node node) {
+        if (node != null) {
+            postOrderRoute(node.getLeft());
+            postOrderRoute(node.getRight());
+            System.out.println(node.getValue());
         }
     }
 }

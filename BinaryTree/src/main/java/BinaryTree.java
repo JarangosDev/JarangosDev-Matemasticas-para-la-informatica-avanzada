@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 public class BinaryTree {
-    private Nodo raiz;
+    private Node root;
 
     public BinaryTree() {
-        raiz = null;
+        root = null;
     }
 
-    public Nodo getRaiz() {
-        return raiz;
+    public Node getRoot() {
+        return root;
     }
 
     public void insert(int valor) {
-        raiz = insertarR(raiz, valor);
+        root = insertR(root, valor);
     }
 
-    private static Nodo insertarR(Nodo raiz, int valor) {
+    private static Node insertR(Node raiz, int valor) {
         Scanner sc = new Scanner(System.in);
         if (raiz == null) {
-            raiz = new Nodo(valor);
+            raiz = new Node(valor);
             return raiz;
         }
 
@@ -26,9 +26,9 @@ public class BinaryTree {
         int opc = sc.nextInt();
 
         if (opc == 1) {
-            raiz.setIzquierdo(insertarR(raiz.getIzquierdo(), valor));
+            raiz.setLeft(insertR(raiz.getLeft(), valor));
         } else if (opc == 0) {
-            raiz.setDerecho(insertarR(raiz.getDerecho(), valor));
+            raiz.setRight(insertR(raiz.getRight(), valor));
         }
 
         return raiz;
